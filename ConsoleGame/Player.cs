@@ -424,6 +424,5 @@ namespace ConsoleGame
 
     }
 
-
 }
 

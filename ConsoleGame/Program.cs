@@ -1,5 +1,7 @@
 ﻿using System;
 using static System.Console;
+using System.Media;
+
 
 namespace ConsoleGame
 {
@@ -7,6 +9,9 @@ namespace ConsoleGame
     {
         static void Main(string[] args)
         {
+
+
+            
 
             Title = "Cabat";
             CursorVisible = false;
@@ -24,6 +29,23 @@ namespace ConsoleGame
                 WriteLine("Error: Cannot create a big enough console window.");
                 WriteLine("You can continue playing, but be aware that some art might not render as intended.");
                 CustomMethods.WaitForKeyPress();
+            }
+
+            try
+
+            {
+
+                SoundPlayer music = new SoundPlayer("Sea Shanty.wav");
+                music.PlayLooping();
+
+            }
+
+            catch
+
+            {
+                Console.WriteLine("System could not play audio.");
+                CustomMethods.WaitForKeyPress();
+                Console.Clear();
             }
 
 
