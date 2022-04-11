@@ -13,9 +13,9 @@ namespace ConsoleGame
             Health_Points = 250;
             Current_Health = Health_Points;
             Gold = 150;
-            BaseAttack = 50;
+            BaseAttack = 40;
             MaxAttack = 60;
-            ExperiencePoints = 500;
+            ExperiencePoints = 250;
             color = ConsoleColor.Red;
             Name = "Rat Queen";
             Art = @"

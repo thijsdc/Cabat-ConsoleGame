@@ -105,7 +105,7 @@ namespace ConsoleGame
             Level += 1;
             Console.WriteLine($"You leveled up!");
 
-            Health_Points += 25;
+            Health_Points += 20;
             ResetHealth();          
 
                         
@@ -212,10 +212,10 @@ namespace ConsoleGame
 
             {
                 Amulet_of_Life -= 1;
+                Current_Health = Health_Points;
                 Console.WriteLine("You used an amulet of life to prevent your player stats from resetting.");
-                CustomMethods.WaitForKeyPress();
-                Console.WriteLine("You have been teleported back to Thais.");
-                CustomMethods.WaitForKeyPress();
+                CustomMethods.WaitForKeyPress();                
+                
                 return;
 
             }
@@ -225,7 +225,7 @@ namespace ConsoleGame
                 PlayerReset();
                 CustomMethods.WaitForKeyPress();
                 Console.WriteLine("You have been teleported back to Thais.");
-                CustomMethods.WaitForKeyPress();
+                
                                
                 
             }
@@ -356,7 +356,7 @@ namespace ConsoleGame
 
         {
             int currentHealth = Current_Health;
-            int BaseHeal = Healing_Level * 20;
+            int BaseHeal = 25 + Healing_Level * 25;
             int current_Heal_Value = Rnd.Next(BaseHeal, BaseHeal + 15);
             Current_Mana -= 25;
 
@@ -376,7 +376,7 @@ namespace ConsoleGame
                     SetCursorPosition(cursorleft, cursortop);
                     DisplayHealthBar();
                     DisplayManaBar();
-                    Thread.Sleep(40);
+                    Thread.Sleep(25);
 
 
                 }
@@ -391,7 +391,7 @@ namespace ConsoleGame
                     SetCursorPosition(cursorleft, cursortop);
                     DisplayHealthBar();
                     DisplayManaBar();
-                    Thread.Sleep(40);
+                    Thread.Sleep(25);
 
                 }
             }

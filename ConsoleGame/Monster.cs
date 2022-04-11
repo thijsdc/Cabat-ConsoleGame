@@ -4,6 +4,7 @@ using System.Text;
 using static System.Console;
 using Weighted_Randomizer;
 
+
 namespace ConsoleGame
 {
    public class Monster : Character
@@ -86,10 +87,24 @@ namespace ConsoleGame
         public override void Display()
 
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            base.Display();            
+            ForegroundColor = color;
+            WriteLine($"\n{Art}\n");
+            ResetColor();
+            BackgroundColor = ConsoleColor.DarkMagenta;
+            ForegroundColor = ConsoleColor.White;
+            WriteLine($"--- {Name} - {LevelToStar(Level)} ---");
+            ResetColor();
             DisplayHealthBar();
 
+        }
+
+        public string LevelToStar(int level)
+
+        {
+            //✶
+            return new string('✶', level);
         }
 
         

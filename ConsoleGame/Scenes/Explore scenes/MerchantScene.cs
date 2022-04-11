@@ -25,7 +25,7 @@ namespace ConsoleGame.Scenes.Explore_scenes
             int cursortop = Console.CursorTop;
 
             string Prompt = $"What would you like to buy {MyGame.player.Name}? You have {MyGame.player.Gold} gold to spend!";
-            string[] Options = { "Mana Potion", "Travel permit to Ferumbras Forest", "Travel permit to Cabat Castle", "Amulet of Life (protects player from resetting upon death)","Leave" };
+            string[] Options = {"Mana Potion (100)", "Travel permit to Ferumbras Forest (350)", "Travel permit to Cabat Castle (1000)", "Amulet of Life (1500)","Leave" };
             Menu mainMenu = new Menu(Prompt, Options);
             int selectedIndex = mainMenu.Run(cursorleft, cursortop);
 
@@ -51,17 +51,17 @@ namespace ConsoleGame.Scenes.Explore_scenes
                     MyGame.merchantScene.Run();
                     break;
                 case 1:
-                    if (MyGame.player.Gold < 500)
+                    if (MyGame.player.Gold < 350)
 
                     {
-                        InsufficientFunds(500);
+                        InsufficientFunds(350);
                     }
 
                     else
 
                     {
                         MyGame.player.HasFerumbrasTravelPermit = true;
-                        MyGame.player.Gold -= 500;
+                        MyGame.player.Gold -= 350;
                         Console.WriteLine("Thank you for buying a travel permit to Ferumbras Forest.");
                         CustomMethods.WaitForKeyPress();
 
@@ -91,7 +91,7 @@ namespace ConsoleGame.Scenes.Explore_scenes
                     if (MyGame.player.Gold < 1250)
 
                     {
-                        InsufficientFunds(1250);
+                        InsufficientFunds(1500);
                     }
 
                     else
@@ -100,7 +100,7 @@ namespace ConsoleGame.Scenes.Explore_scenes
                         
                         MyGame.player.Amulet_of_Life += 1;
                         MyGame.player.Gold -= 1250;
-                        Console.WriteLine("Thank you for buying an Amulet of Life.");
+                        Console.WriteLine("Thank you for buying an Amulet of Life. This amulet will protect you upon death.");
                         CustomMethods.WaitForKeyPress();
 
                     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.Console;
 using System.Media;
-
+using System.Text;
 
 namespace ConsoleGame
 {
@@ -31,7 +31,7 @@ namespace ConsoleGame
                 CustomMethods.WaitForKeyPress();
             }
 
-            try
+            /*try
 
             {
 
@@ -46,14 +46,14 @@ namespace ConsoleGame
                 Console.WriteLine("System could not play audio.");
                 CustomMethods.WaitForKeyPress();
                 Console.Clear();
-            }
+            }*/
 
 
             Game game = new Game();
             game.Run();
 
-                       
-            
+
+
         }
     }
 }
