@@ -26,11 +26,11 @@ namespace ConsoleGame.Scenes
 
             string[] Script =
             {
-             $"{MyGame.player.Name}, the good people of Thais have been terrorized by the Cabat Overlord for decades...!",
+             $"{MyGame.player.Name}, the good people of Thais have been terrorized by the Cabat Overlord for decades...",
              "Many warriors have come before you to challenge him, but I believe you might have potential.",
              "Can you help us defeat him?",
              $"Be warned {MyGame.player.Name}, death is lurking behind every corner!",
-             "Good Luck my friend!",
+             "Good luck my friend!",
              "You are currently in Thais."
             };
 

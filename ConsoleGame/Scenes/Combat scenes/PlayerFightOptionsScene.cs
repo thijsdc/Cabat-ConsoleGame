@@ -39,7 +39,11 @@ namespace ConsoleGame.Scenes
 
             {
                 case 0:
-                    MyGame.player.Attack(monster);
+                    var attackValue = MyGame.player.Attack(monster);
+                    Console.Clear();
+                    monster.Display();
+                    MyGame.player.Display();
+                    MyGame.player.DisplayAttack(monster, attackValue);
                     break;
                 case 1:
                     if (MyGame.player.Current_Mana < 20)
@@ -50,10 +54,11 @@ namespace ConsoleGame.Scenes
                         MyGame.playerFightOptionsScene.Run(monster);
                         break;
                     }
-                    MyGame.player.Heal();                 
+
+                    else {MyGame.player.Heal(monster);}                                 
                     break;
                 case 2:
-                    if(MyGame.player.Mana_Potions == 0)
+                    if (MyGame.player.Mana_Potions == 0)
 
                     {
                         Console.WriteLine("You do not have any mana potions left...");
@@ -61,7 +66,7 @@ namespace ConsoleGame.Scenes
                         MyGame.playerFightOptionsScene.Run(monster);
                         break;
                     }
-                    MyGame.player.UseManaPotion();
+                    else { MyGame.player.UseManaPotion(monster); }
                     break;
 
 

@@ -12,6 +12,7 @@ namespace ConsoleGame
         
         
         public int MaxAttack;
+        public int BaseAttack;
         public int ExperiencePoints; 
         
 
@@ -28,27 +29,16 @@ namespace ConsoleGame
 
         }
 
-        public override void Fight(Character otherCharacter)
+        public override int Attack(Character otherCharacter)
+
         {
-            int CurrentAttackValue = Rnd.Next(BaseAttack, MaxAttack);
-            otherCharacter.Current_Health -= CurrentAttackValue;
+            int RandomAttackValue = Rnd.Next(BaseAttack, MaxAttack);
+            otherCharacter.TakeDamage(RandomAttackValue);
 
-            if (otherCharacter.IsAlive)
-
-            {
-
-                Console.WriteLine($"{Name} attacked you for {CurrentAttackValue} damage.");
-            }
-
-            else
-            {
-                Console.WriteLine($"{Name} attacked you for {CurrentAttackValue} damage and killed you!.");                
-
-            }
-
-            
+            return RandomAttackValue;
         }
-            
+
+
         public void OnDefeat(Player player)
 
         {
@@ -64,14 +54,14 @@ namespace ConsoleGame
 
             if (player.Experience >= player.Experience_Needed) player.LevelUp();
 
-            if(this is Ferumbras)
+            if(this is Ferumbras && player.HasKey == false)
 
             {
                 Console.WriteLine("You obtained Ferumbras's masterkey.");
                 player.HasKey = true;
             }
 
-            if (this is Rat_Queen)
+            if (this is Rat_Queen && player.HasRatTail == false)
 
             {
                 Console.WriteLine("You now possess the Queen Rat's tail.");

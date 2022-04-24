@@ -24,7 +24,7 @@ namespace ConsoleGame.Scenes.Explore_scenes
             int cursorleft = Console.CursorLeft;
             int cursortop = Console.CursorTop;
 
-            string Prompt = $"What would you like to buy {MyGame.player.Name}? You have {MyGame.player.Gold} gold to spend!";
+            string Prompt = $"What would you like to buy {MyGame.player.Name} (Gold: {MyGame.player.Gold})?";
             string[] Options = {"Mana Potion (100)", "Travel permit to Ferumbras Forest (350)", "Travel permit to Cabat Castle (1000)", "Amulet of Life (1500)","Leave" };
             Menu mainMenu = new Menu(Prompt, Options);
             int selectedIndex = mainMenu.Run(cursorleft, cursortop);
@@ -126,10 +126,6 @@ namespace ConsoleGame.Scenes.Explore_scenes
                 Console.WriteLine($"You can not afford this item... you need {money} gold.");
                 CustomMethods.WaitForKeyPress();
                 
-            
-                
-           
-            
         }
     }
 

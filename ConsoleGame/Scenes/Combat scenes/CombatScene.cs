@@ -32,8 +32,10 @@ namespace ConsoleGame.Scenes
                     break;
                 }
 
-                monster.Fight(MyGame.player);
-                CustomMethods.WaitForKeyPress();
+               MonsterAttackScene monsterAttackScene = new MonsterAttackScene(MyGame);
+
+               monsterAttackScene.Run(monster);
+               CustomMethods.WaitForKeyPress();
 
             }
 
@@ -48,7 +50,7 @@ namespace ConsoleGame.Scenes
 
             {
                 MyGame.player.Dies();
-                return;
+                
             }
         }
     }

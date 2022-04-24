@@ -24,8 +24,7 @@ namespace ConsoleGame.Scenes
             Console.WriteLine("You encounter the Rat Queen");
             CustomMethods.WaitForKeyPress();
             MyGame.combatScene.Run(rat_queen);           
-            CustomMethods.WaitForKeyPress();
-
+           
 
         }
     }

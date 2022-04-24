@@ -28,24 +28,24 @@ namespace ConsoleGame
 
         {
             Name = "Name";
-            Level = 1;
+            Level = 15;
             Experience = 0;
-            Health_Points = 100;
+            Health_Points = 400;
             Current_Health = Health_Points;
             Mana_Points = 100;
             Mana_Potions = 1;
             Current_Mana = Mana_Points;
-            Attack_Level = 1;
-            Healing_Level = 1;
+            Attack_Level = 7;
+            Healing_Level = 7;
             Experience_Needed = 100;
             Player_Location = new Thais();
             Gold = 0;
             Amulet_of_Life = 0;
 
             HasRatTail = false;
-            HasKey = false;
+            HasKey = true;
             HasFerumbrasTravelPermit = false;
-            HasCabatCastleTravelPermit = false;
+            HasCabatCastleTravelPermit = true;
             
 
             color = ConsoleColor.Green;
@@ -68,37 +68,16 @@ namespace ConsoleGame
 
         }
 
-        
-        public void Attack(Character otherCharacter)
+        public override int Attack(Character otherCharacter)
 
         {
             int BaseAttack = Attack_Level * 10;
             int RandomAttackValue = Rnd.Next(BaseAttack, BaseAttack + 10);
-
             otherCharacter.TakeDamage(RandomAttackValue);
 
-            if (otherCharacter.Health_Points <= 0)
-
-            {
-                Console.Clear();
-                otherCharacter.Display();
-                Display();
-                Console.WriteLine($"{Name} (level {Level}) did {RandomAttackValue} damage and defeated the {otherCharacter.Name}!");
-            }
-
-            else
-
-            {
-                Console.Clear();
-                otherCharacter.Display();
-                Display();
-                Console.WriteLine($"{Name} (level {Level}) did {RandomAttackValue} damage.");
-            }
-
-            
-
+            return RandomAttackValue;
         }
-           
+
         public void LevelUp()
 
         {
@@ -211,12 +190,14 @@ namespace ConsoleGame
             if(Amulet_of_Life > 0)
 
             {
-                Amulet_of_Life -= 1;
-                Current_Health = Health_Points;
+                Amulet_of_Life -= 1;                
                 Console.WriteLine("You used an amulet of life to prevent your player stats from resetting.");
+
+                ResetHealth();
+                ResetMana();
                 CustomMethods.WaitForKeyPress();                
                 
-                return;
+                
 
             }
 
@@ -225,9 +206,8 @@ namespace ConsoleGame
                 PlayerReset();
                 CustomMethods.WaitForKeyPress();
                 Console.WriteLine("You have been teleported back to Thais.");
-                
-                               
-                
+                CustomMethods.WaitForKeyPress();
+
             }
                     
            
@@ -352,7 +332,7 @@ namespace ConsoleGame
 
         }
 
-        public void Heal()
+        public void Heal(Monster monster)
 
         {
             int currentHealth = Current_Health;
@@ -361,6 +341,7 @@ namespace ConsoleGame
             Current_Mana -= 25;
 
             Clear();
+            monster.Display();
             DisplayWithoutHealthBar();
             int cursorleft = Console.CursorLeft;
             int cursortop = Console.CursorTop;
@@ -375,8 +356,7 @@ namespace ConsoleGame
                     Current_Health++;
                     SetCursorPosition(cursorleft, cursortop);
                     DisplayHealthBar();
-                    DisplayManaBar();
-                    Thread.Sleep(25);
+                    DisplayManaBar();                
 
 
                 }
@@ -391,7 +371,7 @@ namespace ConsoleGame
                     SetCursorPosition(cursorleft, cursortop);
                     DisplayHealthBar();
                     DisplayManaBar();
-                    Thread.Sleep(25);
+                   
 
                 }
             }
@@ -401,7 +381,7 @@ namespace ConsoleGame
 
         }
 
-        public void UseManaPotion()
+        public void UseManaPotion(Monster monster)
 
         {
 
@@ -410,6 +390,7 @@ namespace ConsoleGame
            Mana_Potions -= 1;
 
             Console.Clear();
+            monster.Display();
             Display();
             Console.WriteLine("You consumed a mana potion.");
 

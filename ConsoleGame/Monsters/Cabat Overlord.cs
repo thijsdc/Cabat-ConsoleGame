@@ -10,11 +10,11 @@ namespace ConsoleGame
 
         {
             Level = 1;
-            Health_Points = 1000;
+            Health_Points = 800;
             Current_Health = Health_Points;
-            BaseAttack = 150;
-            MaxAttack = 250;
-            ExperiencePoints = 50000;
+            BaseAttack = 120;
+            MaxAttack = 150;
+            ExperiencePoints = 10000;
             color = ConsoleColor.Red;
             Name = "Cabat Overlord";
             Art = @"

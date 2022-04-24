@@ -24,7 +24,8 @@ namespace ConsoleGame.Scenes
             Console.WriteLine("You are facing the Cabat Overlord, abandon all hope...");
             CustomMethods.WaitForKeyPress();
             MyGame.combatScene.Run(cabat_overlord);
-            MyGame.endScene.Run();
+            if(cabat_overlord.IsDead) MyGame.endScene.Run();
+
 
 
 

@@ -47,15 +47,14 @@ namespace ConsoleGame
             enterDoorScene = new EnterDoorScene(this);
             merchantScene = new MerchantScene(this); 
             endScene = new EndScene(this);
-            stopWatch = System.Diagnostics.Stopwatch.StartNew();
+            stopWatch = Stopwatch.StartNew();
 
         }
 
         public void Run()
 
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            //titleScene.Run();
+            titleScene.Run();
             mainMenuScene.Run();
             
         }

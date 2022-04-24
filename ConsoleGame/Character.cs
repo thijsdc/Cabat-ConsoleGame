@@ -16,7 +16,6 @@ namespace ConsoleGame
         public int Healing_Level { get; set; }
         public int Attack_Level { get; set; }
         public int Gold { get; set; }
-        public int BaseAttack;
         public string Art;
         public ConsoleColor color;
         public bool IsDead { get => Current_Health <= 0;}
@@ -59,38 +58,28 @@ namespace ConsoleGame
             WriteLine($"\n{Art}\n");
             ResetColor();            
         }
+     
 
-        public virtual void Fight(Character otherCharacter)
+        public virtual int Attack(Character otherCharacter)
 
         {
-            
-            BaseAttack = Attack_Level * 10;
+            return 0;          
+        }
 
-            int RandomAttackValue = Rnd.Next(BaseAttack, BaseAttack + 10);
+        public void DisplayAttack(Character otherCharacter, int attackValue)
 
-            otherCharacter.TakeDamage(RandomAttackValue);
-
-                       
-
-            if (otherCharacter.Current_Health <= 0)
+        {
+            if (otherCharacter.Health_Points <= 0)
 
             {
-                Clear();
-                Display();
-                otherCharacter.Display();
-                Console.WriteLine($"{Name} (level {Level}) did {RandomAttackValue} damage and defeated the {otherCharacter.Name}!");
+                WriteLine($"{Name} (level {Level}) did {attackValue} damage and defeated the {otherCharacter.Name}!");
             }
 
             else
 
             {
-                Clear();
-                Display();
-                otherCharacter.Display();                
-                Console.WriteLine($"{Name} (level {Level}) did {RandomAttackValue} damage, {otherCharacter.Name} now has {otherCharacter.Current_Health} health!");
+                Console.WriteLine($"{Name} (level {Level}) did {attackValue} damage.");
             }
-
-
         }
 
         public void TakeDamage(int damageAmount)

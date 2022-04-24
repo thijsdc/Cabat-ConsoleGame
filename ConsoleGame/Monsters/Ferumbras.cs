@@ -12,9 +12,10 @@ namespace ConsoleGame
             Level = 1;
             Health_Points = 500;
             Current_Health = Health_Points;
-            BaseAttack = 100;
-            MaxAttack = 150;
-            ExperiencePoints = 2000;
+            Gold = 500;
+            BaseAttack = 80;
+            MaxAttack = 125;
+            ExperiencePoints = 5000;
             color = ConsoleColor.Yellow;
             Name = "Ferumbras";
             Art = @"

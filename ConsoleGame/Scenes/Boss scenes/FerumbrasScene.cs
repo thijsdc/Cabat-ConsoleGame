@@ -24,7 +24,7 @@ namespace ConsoleGame.Scenes
             Console.WriteLine("You have awakened Ferumbras, the evil sorcerer!");
             CustomMethods.WaitForKeyPress();
             MyGame.combatScene.Run(ferumbras);           
-            CustomMethods.WaitForKeyPress();
+            
 
             
 
