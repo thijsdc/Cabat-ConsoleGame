@@ -28,24 +28,24 @@ namespace ConsoleGame
 
         {
             Name = "Name";
-            Level = 15;
+            Level = 1;
             Experience = 0;
-            Health_Points = 400;
+            Health_Points = 100;
             Current_Health = Health_Points;
             Mana_Points = 100;
             Mana_Potions = 1;
             Current_Mana = Mana_Points;
-            Attack_Level = 7;
-            Healing_Level = 7;
+            Attack_Level = 1;
+            Healing_Level = 1;
             Experience_Needed = 100;
             Player_Location = new Thais();
             Gold = 0;
             Amulet_of_Life = 0;
 
             HasRatTail = false;
-            HasKey = true;
+            HasKey = false;
             HasFerumbrasTravelPermit = false;
-            HasCabatCastleTravelPermit = true;
+            HasCabatCastleTravelPermit = false;
             
 
             color = ConsoleColor.Green;
